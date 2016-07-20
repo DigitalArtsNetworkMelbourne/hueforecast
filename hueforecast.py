@@ -58,7 +58,7 @@ bridge = Bridge(device={ 'ip': ip }, user={ 'name': username })
 # Colour map
 hsvmap = [ { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.5, 'brightness': 0.01 },
 	{ 'text': ['Cloudy', 'Mostly Cloudy', 'Showers'], 'saturation': 0.75, 'brightness': 0.05 },
-	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.95, 'brightness': 0.4 },
+	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.95, 'brightness': 0.25 },
 	{ 'text': ['Mostly Sunny'], 'saturation': 0.9, 'brightness': 0.5 },
 	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.8 },
 	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} ]
