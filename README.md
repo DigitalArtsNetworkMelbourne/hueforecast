@@ -52,9 +52,10 @@ Hueforecast works by querying the Yahoo Weather API. The temperature is translat
 Yahoo's Weather API uses WOEIDs (Where On Earth) as a way of identifying locations. To find the WOEID of your preferred location, go to http://woeid.rosselliot.co.nz/lookup
 
 ## Running
-```python huemovie.py```
+```python hueforecast.py```
 
 For extra information, simply use a -d switch.
+
 ```python hueforecast.py -d```
 
 The script will run on a loop until you cancel it.
