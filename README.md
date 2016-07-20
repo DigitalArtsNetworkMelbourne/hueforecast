@@ -48,6 +48,9 @@ username = os.environ['HUE_USERNAME']       # Username set up on your Hue Bridge
 ## How it works
 Hueforecast works by querying the Yahoo Weather API. The temperature is translated to a hue between blue and red, and saturation/brightness is affected by the environmental conditions. For example, if the weather is cold and rainy, the globe assigned to that location will appear a dim blue colour. If the weather is hot and clear, the globe assigned to that location will appear bright red.
 
+## A note on WOEIDs
+Yahoo's Weather API uses WOEIDs (Where On Earth) as a way of identifying locations. To find the WOEID of your preferred location, go to http://woeid.rosselliot.co.nz/lookup
+
 ## Running
 ```python huemovie.py```
 
