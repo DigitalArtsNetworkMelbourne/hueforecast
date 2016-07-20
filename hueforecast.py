@@ -5,7 +5,6 @@ from numpy import clip, interp
 from lib import ColorHelper, Converter
 import os
 import requests
-import logging
 import datetime
 import colorsys
 import copy
@@ -14,20 +13,29 @@ import argparse
 # Number of seconds to wait between requests
 interval = 60
 
-# Number of hue globes to update
-num_globes = 3
-
-# IP of your Hue Bridge. nano ~/.bash_profile and add: export HUE_BRIDGE_IP="XXX.XXX.XXX.XXX"
-ip = os.environ['HUE_BRIDGE_IP']
-
-# Username set up on your Hue Bridge.
-username = os.environ['HUE_USERNAME']
-
 # Transition time in ms
 transition_time = 2000
 
 # WOEIDs for Melbourne, New York, and Paris. WOEID Lookup: http://woeid.rosselliot.co.nz/lookup
 locations = [1103816, 2459115, 615702]
+
+# Minimum temperature
+temp_min = 5
+
+# Maximum temperature
+temp_max = 35
+
+# Start hue: Blue
+hue_min = 175
+
+# End hue: Red
+hue_max = 360
+
+# Default saturation
+saturation = 100
+
+# Default brightness
+brightness = 100
 
 # Yahoo Weather API endpoint
 endpoint = 'https://query.yahooapis.com/v1/public/yql'
@@ -37,6 +45,12 @@ querystring = { 'q': 'select * from weather.forecast where woeid={0}', 'format':
 
 # Colour converter
 converter = Converter()
+
+# IP of your Hue Bridge. nano ~/.bash_profile and add: export HUE_BRIDGE_IP="XXX.XXX.XXX.XXX"
+ip = os.environ['HUE_BRIDGE_IP']
+
+# Username set up on your Hue Bridge.
+username = os.environ['HUE_USERNAME']
 
 # Bridge object
 bridge = Bridge(device={ 'ip': ip }, user={ 'name': username })
@@ -49,23 +63,6 @@ hsvmap = [	{ 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.01, 'brightness'
 	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.8 },
 	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} ]
 
-# Minimum temperature
-temp_min = 5
-
-# Maximum temperature
-temp_max = 35
-
-# Start hue
-hue_min = 175
-
-# End hue
-hue_max = 360
-
-# Default saturation
-saturation = 100
-
-# Default brighness
-brightness = 100
 
 # Convert farenheit to celcius because Americans are barbarians
 def farenheit_to_celsius(temp):
@@ -78,12 +75,8 @@ def temp_to_hsv(temp):
 def run(debug):
 	try:
 		globe = 1
-
 		# Loop through each location
 		for woeid in locations:
-			if globe > num_globes:
-				break
-
 			# Deep copy the querystring object
 			query = copy.deepcopy(querystring)
 			query['q'] = query['q'].format(woeid)
