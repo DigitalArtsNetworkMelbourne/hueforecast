@@ -17,7 +17,7 @@ interval = 60
 transition_time = 2000
 
 # WOEIDs for Melbourne, New York, and Paris. WOEID Lookup: http://woeid.rosselliot.co.nz/lookup
-locations = [1103816, 2459115, 615702]
+locations = (1103816, 2459115, 615702)
 
 # Minimum temperature
 temp_min = 5
@@ -56,12 +56,12 @@ username = os.environ['HUE_USERNAME']
 bridge = Bridge(device={ 'ip': ip }, user={ 'name': username })
 
 # Colour map
-hsvmap = [ { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.5, 'brightness': 0.01 },
+hsvmap = ( { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.5, 'brightness': 0.01 },
 	{ 'text': ['Cloudy', 'Mostly Cloudy', 'Showers'], 'saturation': 0.75, 'brightness': 0.05 },
 	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.95, 'brightness': 0.25 },
 	{ 'text': ['Mostly Sunny'], 'saturation': 0.9, 'brightness': 0.5 },
 	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.8 },
-	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} ]
+	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} )
 
 
 # Convert farenheit to celcius because Americans are barbarians
@@ -88,14 +88,14 @@ def run(debug):
 			json = response.json()
 
 			# Get the first day of the forecast
-			day = json['query']['results']['channel']['item']['forecast'][0]
+			day = json['query']['results']['channel']['item']['condition']
 
 			# Get the location
 			location = json['query']['results']['channel']['location']['city']
 
 			text = day['text']
 			date = day['date']
-			high = int(day['high'])
+			high = int(day['temp'])
 			temp = farenheit_to_celsius(high)
 			h,s,b = temp_to_hsv(temp)
 
