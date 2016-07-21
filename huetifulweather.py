@@ -56,11 +56,11 @@ username = os.environ['HUE_USERNAME']
 bridge = Bridge(device={ 'ip': ip }, user={ 'name': username })
 
 # Colour map
-hsvmap = ( { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.5, 'brightness': 0.01 },
-	{ 'text': ['Cloudy', 'Mostly Cloudy', 'Showers'], 'saturation': 0.75, 'brightness': 0.05 },
-	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.95, 'brightness': 0.25 },
-	{ 'text': ['Mostly Sunny'], 'saturation': 0.9, 'brightness': 0.5 },
-	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.8 },
+hsvmap = ( { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.6, 'brightness': 0.01 },
+	{ 'text': ['Cloudy', 'Mostly Cloudy', 'Showers'], 'saturation': 0.7, 'brightness': 0.025 },
+	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.8, 'brightness': 0.1 },
+	{ 'text': ['Mostly Sunny'], 'saturation': 0.9, 'brightness': 0.3 },
+	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.7 },
 	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} )
 
 
@@ -108,7 +108,7 @@ def run(debug):
 				b = b*lookup[0]['brightness']
 
 			# Convert to RGB
-			red,green,blue = colorsys.hsv_to_rgb(h/360, b/100, s/100)
+			red,green,blue = colorsys.hsv_to_rgb(h/360, s/100, b/100)
 
 			# Convert to XY
 			xy = converter.rgbToCIE1931(red,green,blue)
@@ -119,6 +119,8 @@ def run(debug):
 				print(date)
 				print(text)
 				print("%.1fc" % round(temp,1))
+				print("RGB: {0}".format((red*255,green*255,blue*255)))
+				print("HSB: {0}".format((h,s,b)))
 				print('-----')
 
 			# JSON sent to the Hue Bridge
@@ -134,7 +136,7 @@ def run(debug):
 			globe+=1
 
 	except Exception as e:
-		print("Exception: %s" % str(e))
+		print("Exception: {0}".format(str(e)))
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser()
