@@ -1,4 +1,4 @@
-# Hueforecast
+# Huetiful Weather
 A visual weather report for your favourite cities.
 
 ## Requirements
@@ -17,7 +17,7 @@ interval = 60
 transition_time = 2000
 
 # WOEIDs for Melbourne, New York, and Paris. WOEID Lookup: http://woeid.rosselliot.co.nz/lookup
-locations = [1103816, 2459115, 615702]
+locations = (1103816, 2459115, 615702)
 
 # Minimum temperature
 temp_min = 5
@@ -52,10 +52,10 @@ Hueforecast works by querying the Yahoo Weather API. The temperature is translat
 Yahoo's Weather API uses WOEIDs (Where On Earth) as a way of identifying locations. To find the WOEID of your preferred location, go to http://woeid.rosselliot.co.nz/lookup
 
 ## Running
-```python hueforecast.py```
+```python huetifulweather.py```
 
 For extra information, simply use a -d switch.
 
-```python hueforecast.py -d```
+```python huetifulweather.py -d```
 
 The script will run on a loop until you cancel it.
