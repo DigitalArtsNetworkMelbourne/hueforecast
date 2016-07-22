@@ -23,7 +23,7 @@ temp_min = 5
 temp_max = 35
 
 # Start hue: Blue
-hue_min = 175
+hue_min = 225
 
 # End hue: Red
 hue_max = 360
@@ -57,7 +57,7 @@ hsvmap = ( { 'text': ['Thunderstorms', 'Rain'], 'saturation': 0.6, 'brightness':
 	{ 'text': ['Cloudy', 'Mostly Cloudy', 'Showers'], 'saturation': 0.7, 'brightness': 0.025 },
 	{ 'text': ['Partly Cloudy', 'Scattered Showers'], 'saturation': 0.8, 'brightness': 0.1 },
 	{ 'text': ['Mostly Sunny'], 'saturation': 0.9, 'brightness': 0.3 },
-	{ 'text': ['Clear', 'Breezy'], 'saturation': 1.0, 'brightness': 0.7 },
+	{ 'text': ['Clear', 'Breezy'], 'saturation': 0.9, 'brightness': 0.7 },
 	{ 'text': ['Sunny'], 'saturation': 1.0, 'brightness': 1.0} )
 
 
