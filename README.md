@@ -51,9 +51,34 @@ Yahoo's Weather API uses WOEIDs (Where On Earth) as a way of identifying locatio
 ## Running
 ```python huetifulweather.py```
 
-For extra information, simply use a -d switch.
+To output the temperature and colour information, simply use a -d switch.
 
 ```python huetifulweather.py -d```
+
+Example output:
+
+```
+Melbourne
+	Fri, 22 Jul 2016 10:00 AM AEST
+	Showers
+	16.1c
+	RGB: (2.1741898148148175, 1.9125000000000003, 6.375)
+	HSB: (243.51851851851853, 70.0, 2.5)
+-----
+New York
+	Thu, 21 Jul 2016 08:00 PM EDT
+	Breezy
+	27.8c
+	RGB: (178.5, 0.0, 132.49768518518533)
+	HSB: (315.46296296296293, 100.0, 70.0)
+-----
+Paris
+	Fri, 22 Jul 2016 02:00 AM CEST
+	Cloudy
+	20.0c
+	RGB: (3.957812500000003, 1.9125000000000003, 6.375)
+	HSB: (267.5, 70.0, 2.5)
+```
 
 ## Launchd
 I run this script as a global daemon using launchd, which is terrible, so I have included a template (com.dan.huetifulweather.plist) to run it every minute. The file contains some environment variables and paths you will need to change before you load it.
