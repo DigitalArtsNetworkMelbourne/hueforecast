@@ -10,9 +10,6 @@ import colorsys
 import copy
 import argparse
 
-# Number of seconds to wait between requests
-interval = 60
-
 # Transition time in ms
 transition_time = 2000
 
@@ -143,6 +140,4 @@ if __name__ == '__main__':
 	parser.add_argument('-d', action='store_true')
 	args = parser.parse_args()
 
-	while True:
-		run(args.d)
-		sleep(interval)
+	run(args.d)
