@@ -58,4 +58,9 @@ For extra information, simply use a -d switch.
 
 ```python huetifulweather.py -d```
 
-The script will run on a loop until you cancel it.
+## Launchd
+I run this script as a global daemon using launchd, which is terrible, so I have included a template (com.dan.huetifulweather.plist) to run it every minute. The file contains some environment variables and paths you will need to change before you load it.
+
+To install, simply run:
+
+```launchctl load /path/to/com.dan.huetifulweather.plist```
