@@ -17,10 +17,10 @@ transition_time = 2000
 locations = (1103816, 2459115, 615702)
 
 # Minimum temperature
-temp_min = 5
+temp_min = 0
 
 # Maximum temperature
-temp_max = 35
+temp_max = 40
 
 # Start hue: Blue
 hue_min = 225
