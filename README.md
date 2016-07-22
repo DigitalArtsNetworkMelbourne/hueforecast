@@ -10,9 +10,6 @@ This script requires Python 2.6+, but at this stage won't work with 3+. All depe
 Change these variables to suit your needs.
 
 ```python
-# Number of seconds to wait between requests
-interval = 60
-
 # Transition time in ms
 transition_time = 2000
 
