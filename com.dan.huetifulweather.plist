@@ -265,8 +265,8 @@
 		</dict>
 	</array>
 	<key>UserName</key>
-	<string>{YOUR_USERNAME</string>
+	<string>{YOUR_USERNAME}</string>
 	<key>WorkingDirectory</key>
-	<string>{/PATH/TO/hueitifulweather</string>
+	<string>{/PATH/TO/}hueitifulweather</string>
 </dict>
 </plist>
