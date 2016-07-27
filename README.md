@@ -81,7 +81,7 @@ Paris
 ```
 
 ## Launchd
-I run this script as a global daemon using launchd, which is terrible, so I have included a template (com.dan.huetifulweather.plist) to run it every minute. The file contains some environment variables and paths you will need to change before you load it.
+I run this script as a global daemon using launchd, which is terrible, so I have included a template (com.dan.huetifulweather.plist) to run it every 5 minutes. The file contains some environment variables and paths you will need to change before you load it, all variables are surrounded by braces ({}).
 
 To install, simply run:
 
